@@ -69,12 +69,15 @@
   <img src="https://cfstatic.give.do/logo.png" alt="Give india logo" width="200" />
 </a>
 
-Are you considering supporting the project by donating? Please DO NOT!!
+Are you considering supporting the project by donating to me? Please DO NOT!!
 
-Instead, Help India fight the second deadly wave of COVID-19.
-Thousands of people are dying in India because of a lack of Oxygen & also COVID-related infrastructure.
 
-Visit <https://indiafightscorona.giveindia.org> and make a small donation to help us fight COVID and overcome this crisis. A small donation goes a long way. :heart:
+<img src="https://cfstatic.give.do/910ede2a-7892-43fe-8c8a-dea45e96d950.webp" alt="Picture of Coromandel Express train tragedy" width="35%">
+
+India just suffered one of the most devastating train accident and your help will be immensely valuable for the people who were effected by this tragedy. 
+
+Please visit [this link](https://give.do/fundraisers/stand-beside-the-victims-of-the-coromandel-express-train-tragedy-in-odisha-donate-now) and make a small donation to help the people in need. A small donation goes a long way. :heart:
+
 
 </p>
 
@@ -107,6 +110,9 @@ Change the `?username=` value to your GitHub username.
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
 ```
 
+> **Warning**
+> By default stats card shows contributions only from public repositories. To show your private contributions you should [deploy you own instance](#deploy-on-your-own) using your own GitHub API token which allowed to see your private data.
+
 > **Note**
 > Available ranks are S+ (top 1%), S (top 25%), A++ (top 45%), A+ (top 60%), and B+ (everyone). The values are calculated by using the [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) using commits, contributions, issues, stars, pull requests, followers, and owned repositories. The implementation can be investigated at [src/calculateRank.js](./src/calculateRank.js).
 
@@ -118,19 +124,6 @@ You can pass a query parameter `&hide=` to hide any specific stats with comma-se
 
 ```md
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&hide=contribs,prs)
-```
-
-### Adding private contributions count to total commits count
-
-You can add the count of all your private contributions to the total commits count by using the query parameter `&count_private=true`.
-
-> **Note**
-> If you are deploying this project yourself, the private contributions will be counted by default. If you are using the public Vercel instance, you need to choose to [share your private contributions](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
-
-> Options: `&count_private=true`
-
-```md
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&count_private=true)
 ```
 
 ### Showing icons
@@ -283,7 +276,7 @@ You can provide multiple comma-separated values in the bg_color option to render
 -   `rank_icon` - Shows alternative rank icon (i.e. `github` or `default`). Default: `default`.
 -   `show_icons` - _(boolean)_. Default: `false`.
 -   `include_all_commits` - Count total commits instead of just the current year commits _(boolean)_. Default: `false`.
--   `count_private` - Count private commits _(boolean)_. Default: `false`.
+-   `count_private` - Count private contributions _(boolean)_. Default: `false`.
 -   `line_height` - Sets the line height between text _(number)_. Default: `25`.
 -   `exclude_repo` - Exclude stars from specified repositories _(Comma-separated values)_. Default: `[] (blank array)`.
 -   `custom_title` - Sets a custom title for the card. Default:  `<username> GitHub Stats`.
@@ -303,9 +296,9 @@ You can provide multiple comma-separated values in the bg_color option to render
 
 -   `hide` - Hide the languages specified from the card _(Comma-separated values)_. Default: `[] (blank array)`.
 -   `hide_title` - _(boolean)_. Default: `false`.
--   `layout` - Switch between four available layouts `normal` & `compact` & `donut` & `donut-vertical` & `pie`. Default: `normal`.
+-   `layout` - Switch between five available layouts `normal` & `compact` & `donut` & `donut-vertical` & `pie`. Default: `normal`.
 -   `card_width` - Set the card's width manually _(number)_. Default `300`.
--   `langs_count` - Show more languages on the card, between 1-10 _(number)_. Default `5`.
+-   `langs_count` - Show more languages on the card, between 1-10 _(number)_. Default: `5` for `normal` and `donut`, `6` for other layouts.
 -   `exclude_repo` - Exclude specified repositories _(Comma-separated values)_. Default: `[] (blank array)`.
 -   `custom_title` - Sets a custom title for the card _(string)_. Default `Most Used Languages`.
 -   `disable_animations` - Disables all animations in the card _(boolean)_. Default: `false`.
@@ -328,7 +321,6 @@ You can provide multiple comma-separated values in the bg_color option to render
 -   `layout` - Switch between two available layouts `default` & `compact`.  Default `default`.
 -   `langs_count` - Limit the number of languages on the card, defaults to all reported languages _(number)_.
 -   `api_domain` - Set a custom API domain for the card, e.g. to use services like [Hakatime](https://github.com/mujx/hakatime) or [Wakapi](https://github.com/muety/wakapi) _(string)_. Default `Waka API`.
--   `range` – Request a range different from your WakaTime default, e.g. `last_7_days`. See [WakaTime API docs](https://wakatime.com/developers#stats) for a list of available options. _(YYYY-MM, last_7_days, last_30_days, last_6_months, last_year, or all_time)_. Default `all_time`.
 
 * * *
 
@@ -481,14 +473,14 @@ You can use the `&hide_progress=true` option to hide the percentages and the pro
 
 # Wakatime Week Stats
 
+> **Warning**
+> Please be aware that we currently only show data from Wakatime profiles that are public. You therefore have to make sure that **BOTH** `Display code time publicly` and `Display languages, editors, os, categories publicly` are enabled.
+
 Change the `?username=` value to your [Wakatime](https://wakatime.com) username.
 
 ```md
 [![Harlok's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=Harlok)](https://github.com/anuraghazra/github-readme-stats)
 ```
-
-> **Note**:
-> Please be aware that we currently only show data from Wakatime profiles that are public.
 
 ### Demo
 

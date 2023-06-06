@@ -16,6 +16,7 @@ import {
   trimTopLanguages,
   renderTopLanguages,
   MIN_CARD_WIDTH,
+  getDefaultLanguagesCountByLayout,
 } from "../src/cards/top-languages-card.js";
 
 // adds special assertions like toHaveTextContent
@@ -327,6 +328,15 @@ describe("Test renderTopLanguages helper functions", () => {
       langs: [langs.HTML, langs.css],
       totalLanguageSize: 300,
     });
+  });
+
+  it("getDefaultLanguagesCountByLayout", () => {
+    expect(getDefaultLanguagesCountByLayout("normal")).toStrictEqual(5);
+    expect(getDefaultLanguagesCountByLayout(undefined)).toStrictEqual(5);
+    expect(getDefaultLanguagesCountByLayout("compact")).toStrictEqual(6);
+    expect(getDefaultLanguagesCountByLayout("donut")).toStrictEqual(5);
+    expect(getDefaultLanguagesCountByLayout("donut-vertical")).toStrictEqual(6);
+    expect(getDefaultLanguagesCountByLayout("pie")).toStrictEqual(6);
   });
 });
 
@@ -797,7 +807,7 @@ describe("Test renderTopLanguages", () => {
     expect(document.querySelector("rect")).toHaveAttribute("rx", "4.5");
   });
 
-  it("should render langs with specified langs_count", async () => {
+  it("should render langs with specified langs_count", () => {
     const options = {
       langs_count: 1,
     };
@@ -807,7 +817,7 @@ describe("Test renderTopLanguages", () => {
     );
   });
 
-  it("should render langs with specified langs_count even when hide is set", async () => {
+  it("should render langs with specified langs_count even when hide is set", () => {
     const options = {
       hide: ["HTML"],
       langs_count: 2,
@@ -815,6 +825,13 @@ describe("Test renderTopLanguages", () => {
     document.body.innerHTML = renderTopLanguages(langs, { ...options });
     expect(queryAllByTestId(document.body, "lang-name").length).toBe(
       options.langs_count,
+    );
+  });
+
+  it('should show "No languages data." message instead of empty card when nothing to show', () => {
+    document.body.innerHTML = renderTopLanguages({});
+    expect(document.querySelector(".stat").textContent).toBe(
+      "No languages data.",
     );
   });
 });
