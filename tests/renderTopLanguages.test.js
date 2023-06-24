@@ -310,33 +310,44 @@ describe("Test renderTopLanguages helper functions", () => {
       langs: [langs.javascript],
       totalLanguageSize: 200,
     });
-    expect(
-      trimTopLanguages([langs.javascript, langs.HTML], [], 5),
-    ).toStrictEqual({
+    expect(trimTopLanguages([langs.javascript, langs.HTML], 5)).toStrictEqual({
       langs: [langs.javascript, langs.HTML],
       totalLanguageSize: 400,
     });
-    expect(trimTopLanguages(langs, [], 5)).toStrictEqual({
+    expect(trimTopLanguages(langs, 5)).toStrictEqual({
       langs: Object.values(langs),
       totalLanguageSize: 500,
     });
-    expect(trimTopLanguages(langs, [], 2)).toStrictEqual({
+    expect(trimTopLanguages(langs, 2)).toStrictEqual({
       langs: Object.values(langs).slice(0, 2),
       totalLanguageSize: 400,
     });
-    expect(trimTopLanguages(langs, ["javascript"], 5)).toStrictEqual({
+    expect(trimTopLanguages(langs, 5, ["javascript"])).toStrictEqual({
       langs: [langs.HTML, langs.css],
       totalLanguageSize: 300,
     });
   });
 
   it("getDefaultLanguagesCountByLayout", () => {
-    expect(getDefaultLanguagesCountByLayout("normal")).toStrictEqual(5);
-    expect(getDefaultLanguagesCountByLayout(undefined)).toStrictEqual(5);
-    expect(getDefaultLanguagesCountByLayout("compact")).toStrictEqual(6);
-    expect(getDefaultLanguagesCountByLayout("donut")).toStrictEqual(5);
-    expect(getDefaultLanguagesCountByLayout("donut-vertical")).toStrictEqual(6);
-    expect(getDefaultLanguagesCountByLayout("pie")).toStrictEqual(6);
+    expect(
+      getDefaultLanguagesCountByLayout({ layout: "normal" }),
+    ).toStrictEqual(5);
+    expect(getDefaultLanguagesCountByLayout({})).toStrictEqual(5);
+    expect(
+      getDefaultLanguagesCountByLayout({ layout: "compact" }),
+    ).toStrictEqual(6);
+    expect(
+      getDefaultLanguagesCountByLayout({ hide_progress: true }),
+    ).toStrictEqual(6);
+    expect(getDefaultLanguagesCountByLayout({ layout: "donut" })).toStrictEqual(
+      5,
+    );
+    expect(
+      getDefaultLanguagesCountByLayout({ layout: "donut-vertical" }),
+    ).toStrictEqual(6);
+    expect(getDefaultLanguagesCountByLayout({ layout: "pie" })).toStrictEqual(
+      6,
+    );
   });
 });
 
