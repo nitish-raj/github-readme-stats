@@ -719,7 +719,7 @@ const getDefaultLanguagesCountByLayout = ({ layout, hide_progress }) => {
 const renderTopLanguages = (topLangs, options = {}) => {
   const {
     hide_title = false,
-    hide_border,
+    hide_border = false,
     card_width,
     title_color,
     text_color,
